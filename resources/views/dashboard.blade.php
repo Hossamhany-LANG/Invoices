@@ -13,24 +13,15 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="left-content">
 						<div>
-						  <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Hi, welcome back!</h2>
-						  <p class="mg-b-0">Sales monitoring dashboard template.</p>
+							<h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">أهلا وسهلا {{Auth::user()->name}}</h2>
 						</div>
 					</div>
 					<div class="main-dashboard-header-right">
 						<div>
-							<label class="tx-13">Customer Ratings</label>
+							<label class="tx-13">تقييمات المستخدمين</label>
 							<div class="main-star">
 								<i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star"></i> <span>(14,873)</span>
 							</div>
-						</div>
-						<div>
-							<label class="tx-13">Online Sales</label>
-							<h5>563,275</h5>
-						</div>
-						<div>
-							<label class="tx-13">Offline Sales</label>
-							<h5>783,675</h5>
 						</div>
 					</div>
 				</div>
@@ -138,10 +129,8 @@
 						<div class="card">
 							<div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
 								<div class="d-flex justify-content-between">
-									<h4 class="card-title mb-0">Order status</h4>
-									<i class="mdi mdi-dots-horizontal text-gray"></i>
+									<h4 class="card-title mb-0">بيان احصائي لإجمالي الفواتير</h4>
 								</div>
-								<p class="tx-12 text-muted mb-0">Order Status and Tracking. Track your order from ship date to arrival. To begin, enter your order number.</p>
 							</div>
 							<div class="card-body" style="width:75">
 								<canvas id="barChartTest" width="400" height="200"></canvas>
@@ -176,20 +165,39 @@
 						});
 					});
 				</script>
-
-
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-12 col-xl-5">
-						<div class="card card-dashboard-map-one">
-							<label class="main-content-label">Sales Revenue by Customers in USA</label>
-							<span class="d-block mg-b-20 text-muted tx-12">Sales Performance of all states in the United States</span>
-							<div class="">
-								<div class="vmap-wrapper ht-180" id="vmap2"></div>
-							</div>
-						</div>
+						<style>
+							#pieChartTest {
+								background-color: #ffffff; /* الخلفية البيضاء */
+							}
+						</style>
+						<canvas id="pieChartTest" width="600" height="400"></canvas>
+						<script>
+							document.addEventListener('DOMContentLoaded', function () {
+								const ctx = document.getElementById('pieChartTest').getContext('2d');
+								const myChart = new Chart(ctx, {
+									type: 'pie',
+									data: {
+										labels: ['الفواتير الغير المدفوعة', 'الفواتير المدفوعة', 'الفواتير المدفوعة جزئيا'],
+										datasets: [
+											{
+												label: 'حالة الفواتير',
+												data: [{{ $nspainvoices2 }}, {{ $nspainvoices1 }}, {{ $nspainvoices3 }}],
+												backgroundColor: ['#ec5858', '#81b214', '#ff9642'],
+											},
+										],
+									},
+									options: {
+										responsive: true,
+									},
+								});
+							});
+						</script>
 					</div>
+					
 				</div>
 				<!-- row closed -->
 			</div>

@@ -86,7 +86,7 @@
                                         </thead>
                                         <tbody>
                                         <?php $i =0?>
-                                        @foreach($sections as $section)
+                                        @foreach(\App\Models\section::all() as $section)
                                             <?php $i++?>
                                         <tr>
                                             <td>{{$i}}</td>
@@ -121,9 +121,9 @@
                                     <h6 class="modal-title">اضافة قسم</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">
-                                    @foreach($sections as $section)
+                                    
                                     <form action="{{route('sections.store' , $section->id)}}" method="post">
-                                        @endforeach
+                                      
                                         @csrf
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">اسم القسم</label>
@@ -159,9 +159,9 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        @foreach($sections as $section)
+                                        
                                         <form action="{{route('sections.update' , $section->id)}}" method="post" autocomplete="off">
-                                        @endforeach
+                                        
                                             @method('patch')
                                             @csrf
                                             <div class="form-group">
@@ -191,9 +191,9 @@
                                     <h6 class="modal-title">حذف القسم</h6><button aria-label="Close" class="close" data-dismiss="modal"
                                          type="button"><span aria-hidden="true">&times;</span></button>
                                 </div>
-                                @foreach($sections as $section)
+                                
                                 <form action="{{route('sections.destroy' , $section->id)}}" method="post">
-                                    @endforeach
+                                    
                                     @method('delete')
                                     @csrf
                                     <div class="modal-body">

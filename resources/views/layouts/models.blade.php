@@ -174,7 +174,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content bg-dark border-0 text-white">
 					<div class="modal-body mx-auto text-center p-7">
-						<h5>Valex Video call</h5>
+						<h5>fawater Video call</h5>
 						<img src="{{URL::asset('assets/img/faces/6.jpg')}}" class="rounded-circle user-img-circle h-8 w-8 mt-4 mb-3" alt="img">
 						<h4 class="mb-1 font-weight-semibold">Daneil Scott</h4>
 						<h6>Calling...</h6>
@@ -207,7 +207,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content border-0">
 					<div class="modal-body mx-auto text-center p-7">
-						<h5>Valex Voice call</h5>
+						<h5>fawater Voice call</h5>
 						<img src="{{URL::asset('assets/img/faces/6.jpg')}}" class="rounded-circle user-img-circle h-8 w-8 mt-4 mb-3" alt="img">
 						<h4 class="mb-1  font-weight-semibold">Daneil Scott</h4>
 						<h6>Calling...</h6>
